@@ -20,39 +20,30 @@ app.use (express.static('public'));
 app.post('/joke',urlencodedParser, function(req,res){
   console.log('joke path hit', req.body);
 
+  //assemble objectToReturn
+  var objectToReturn = { jokes : [
+    {
+      whoseJoke: "Huck",
+      jokeQuestion: "What's the difference between roast beef and pea soup?",
+      punchLine: "Anyone can roast beef."
+    },
+    {
+      whoseJoke: "Millie",
+      jokeQuestion: "What do you call a pile of cats?",
+      punchLine: "A meowntain!"
+    },
+    {
+      whoseJoke: "dEv",
+      jokeQuestion: "Why should you not play cards in the forest?",
+      punchLine: "Too many Cheetahs"
+    }
 
+  ]};//end objectToReturn
 
-  //assemble objectToSend
-  var objectToSend = {
-    whoseJoke: "",
-    jokeQuestion: "",
-    punchLine: ""
+  for (var i = 0; i < sendObject.length; i++) {
+    objectToReturn.jokes.push(sendObject[i]);
   }
-  //send objectToSend back to client
-  res.send(objectToSend);
+
+  //send objectToReturn back to client
+  res.send(objectToReturn);
 });//end /joke post
-
-
-
-
-
-
-
-// initial jokes provided by the client
-// jokes = [
-//   {
-//     whoseJoke: "Huck",
-//     jokeQuestion: "What's the difference between roast beef and pea soup?",
-//     punchLine: "Anyone can roast beef."
-//   },
-//   {
-//     whoseJoke: "Millie",
-//     jokeQuestion: "What do you call a pile of cats?",
-//     punchLine: "A meowntain!"
-//   },
-//   {
-//     whoseJoke: "dEv",
-//     jokeQuestion: "Why should you not play cards in the forest?",
-//     punchLine: "Too many Cheetahs"
-//   }
-// ];

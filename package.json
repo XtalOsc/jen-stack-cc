@@ -13,7 +13,6 @@
   },
   "author": "",
   "license": "ISC",
-  },
   "homepage": "https://github.com/XtalOsc/jen-stack-cc#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
